@@ -29,4 +29,4 @@ depending on which build you want; release or debug
 
 make
 
-9. When the build is completed, you will find scope2d in ../x64/Release or ..x64/Debug, depending on the build type you chose
+8. When the build is completed, you will find scope2d in ../x64/Release or ..x64/Debug, depending on the build type you chose
