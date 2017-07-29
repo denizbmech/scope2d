@@ -28,22 +28,21 @@ scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a hr
 
 depending on which build you want; release or debug
 
-7. Change directory to the MSVC folder that has the nmake.exe for 64 bit.
-It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio
+7. Change directory to the MSVC folder that has the nmake.exe for 64 bit. It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio
 
 8. Run 
 
-`vcvars64.bat`
+    `vcvars64.bat`
 
 9. Change directory back to the make-msvc folder
 
 10. Run
 
-`nmake`
+    `nmake`
 
 11. When above line finishes executing, run below
 
-`nmake install`
+    `nmake install`
 
 12. When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose
 
@@ -61,21 +60,21 @@ It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd
 
 6. Run 
 
-`qmake scope2d_release.pro`
+    `qmake scope2d_release.pro`
 
-OR
+    OR
 
-`qmake scope2d_debug.pro`
+    `qmake scope2d_debug.pro`
 
 depending on which build you want; release or debug
 
 7. Run
 
-`mingw32-make`
+    `mingw32-make`
 
 8. When above line finishes executing, run below
 
-`mingw32-make install`
+    `mingw32-make install`
 
 9. When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose
 
