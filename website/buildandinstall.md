@@ -26,7 +26,7 @@ scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a hr
 
     `qmake scope2d_debug.pro`
 
-depending on which build you want; release or debug
+    depending on which build you want; release or debug
 
 7. Change directory to the MSVC folder that has the nmake.exe for 64 bit. It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio
 
@@ -66,7 +66,7 @@ depending on which build you want; release or debug
 
     `qmake scope2d_debug.pro`
 
-depending on which build you want; release or debug
+    depending on which build you want; release or debug
 
 7. Run
 
@@ -98,7 +98,7 @@ depending on which build you want; release or debug
 
     `qmake scope2d_debug.pro`
 
-depending on which build you want; release or debug
+    depending on which build you want; release or debug
 
 7. Run
 
