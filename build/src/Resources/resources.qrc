@@ -1,0 +1,32 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>basicset/1484689456_save_16.png</file>
+    <file>clear_charter/clear.png</file>
+	<file>file_formats/csv.png</file>
+	<file>file_formats/dat.png</file>
+	<file>file_formats/frf.png</file>
+	<file>file_formats/sql.png</file>
+	<file>file_formats/uff.png</file>
+	<file>marker/marker_c.png</file>
+	<file>marker/marker_h.png</file>
+	<file>marker/marker_p.png</file>
+	<file>marker/marker_v.png</file>
+	<file>s2d_app_icon/s2d_app_icon.png</file>
+	<file>toggle_grid/toggle_h_major.png</file>
+	<file>toggle_grid/toggle_h_minor.png</file>
+	<file>toggle_grid/toggle_v_major.png</file>
+	<file>toggle_grid/toggle_v_minor.png</file>
+	<file>toolbar_charters/c1_active.png</file>
+	<file>toolbar_charters/c1_hidden.png</file>
+	<file>toolbar_charters/c1_passive.png</file>
+	<file>toolbar_charters/c1_shown.png</file>
+	<file>toolbar_charters/c2_active.png</file>
+	<file>toolbar_charters/c2_hidden.png</file>
+	<file>toolbar_charters/c2_passive.png</file>
+	<file>toolbar_charters/c2_shown.png</file>
+	<file>toolbar_charters/c3_active.png</file>
+	<file>toolbar_charters/c3_hidden.png</file>
+	<file>toolbar_charters/c3_passive.png</file>
+	<file>toolbar_charters/c3_shown.png</file>
+</qresource>
+</RCC>
