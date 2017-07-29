@@ -20,11 +20,11 @@ scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a hr
 
 6. Run 
 
-  `qmake scope2d_release.pro`
+`qmake scope2d_release.pro`
 
-  OR
+OR
 
-  `qmake scope2d_debug.pro`
+`qmake scope2d_debug.pro`
 
 depending on which build you want; release or debug
 
