@@ -24,7 +24,7 @@ OR
 
 depending on which build you want; release or debug</li>
 <li>Change directory to the MSVC folder that has the nmake.exe for 64 bit.
-It is usually at C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64 if you have MS Visual Studio</li>
+It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio</li>
 <li>Run 
 
 `vcvars64.bat`</li>
