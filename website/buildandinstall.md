@@ -8,13 +8,17 @@ scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a hr
 
 #### Build 64bit with MSVC using nmake
 
-<ol>
-<li>Open either scope2d_release.pro or scope2d_debug.pro depending on the build type you want</li>
-<li>Set EIGENDIR to your installation location of Eigen library.</li>
-<li>Set QWTDIR to your installation location of Qwt library.</li>
-<li>Start Qt Console for MSVC</li>
-<li>Change directory to this directory (i.e. <YOUR_PATH>/build/make-msvc)</li>
-<li>Run 
+1. Open either `scope2d_release.pro` or `scope2d_debug.pro` depending on the build type you want
+
+2. Set `EIGENDIR` to your installation location of Eigen library.
+
+3. Set `QWTDIR` to your installation location of Qwt library.
+
+4. Start Qt Console for MSVC
+
+5. Change directory to this directory (i.e. `<YOUR_PATH>/build/make-msvc`)
+
+6. Run 
 
 `qmake scope2d_release.pro`
 
@@ -22,30 +26,40 @@ OR
 
 `qmake scope2d_debug.pro`
 
-depending on which build you want; release or debug</li>
-<li>Change directory to the MSVC folder that has the nmake.exe for 64 bit. It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio</li>
-<li>Run 
+depending on which build you want; release or debug
 
-`vcvars64.bat`</li>
-<li>Change directory back to the make-msvc folder</li>
-<li>Run
+7. Change directory to the MSVC folder that has the nmake.exe for 64 bit.
+It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio
 
-`nmake`</li>
-<li>When above line finishes executing, run below
+8. Run 
 
-`nmake install`</li>
-<li>When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose</li>
-</ol>
+`vcvars64.bat`
+
+9. Change directory back to the make-msvc folder
+
+10. Run
+
+`nmake`
+
+11. When above line finishes executing, run below
+
+`nmake install`
+
+12. When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose
 
 #### Build 32bit with MinGW
 
-<ol>
-  <li>Open either scope2d_release.pro or scope2d_debug.pro depending on the build type you want</li>
-  <li>Set EIGENDIR to your installation location of Eigen library.</li>
-  <li>Set QWTDIR to your installation location of Qwt library.</li>
-  <li>Start Qt Console for MSVC</li>
-  <li>Change directory to this directory (i.e. <YOUR_PATH>/build/make-mingw)</li>
-  <li>Run 
+1. Open either `scope2d_release.pro` or `scope2d_debug.pro` depending on the build type you want
+
+2. Set `EIGENDIR` to your installation location of Eigen library.
+
+3. Set `QWTDIR` to your installation location of Qwt library.
+
+4. Start Qt Console for MSVC
+
+5. Change directory to this directory (i.e. `<YOUR_PATH>/build/make-mingw`)
+
+6. Run 
 
 `qmake scope2d_release.pro`
 
@@ -53,15 +67,17 @@ OR
 
 `qmake scope2d_debug.pro`
 
-depending on which build you want; release or debug</li>
-  <li>Run
+depending on which build you want; release or debug
 
-`mingw32-make`</li>
-  <li>When above line finishes executing, run below
+7. Run
 
-`mingw32-make install`</li>
-  <li>When the build is completed, you will find scope2d.exe in ../x64/Release or ..x64/Debug, depending on the build type you chose</li>
-</ol>
+`mingw32-make`
+
+8. When above line finishes executing, run below
+
+`mingw32-make install`
+
+9. When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose
 
 ### Build scope2d on Linux
 
@@ -69,4 +85,4 @@ Soon
 
 ### Alternative methods to build scope2d
 
-Since scope2d has a small source code base, its source code can easily be imported into Visual Studio or Qt Creator to be built. Qwt and Eigen need to be added as additional dependencies to the project in either environment. In Visual Studio, the <a href="https://download.qt.io/official_releases/vsaddin/">Qt VS Addin</a> can be used to create a Qt project within Visual Studio, after which the scope2d source code can be imported.
+Since scope2d has a small source code, its source code can easily be imported into Visual Studio or Qt Creator to be built. Qwt and Eigen need to be added as additional dependencies to the project in either environment. In Visual Studio, the <a href="https://download.qt.io/official_releases/vsaddin/">Qt VS Addin</a> can be used to create a Qt project within Visual Studio, after which the scope2d source code can be imported.
