@@ -23,8 +23,7 @@ OR
 `qmake scope2d_debug.pro`
 
 depending on which build you want; release or debug</li>
-<li>Change directory to the MSVC folder that has the nmake.exe for 64 bit.
-It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio</li>
+<li>Change directory to the MSVC folder that has the nmake.exe for 64 bit. It is usually at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64` if you have MS Visual Studio</li>
 <li>Run 
 
 `vcvars64.bat`</li>
@@ -63,7 +62,7 @@ depending on which build you want; release or debug</li>
   <li>When above line finishes executing, run below
 
 `mingw32-make install`</li>
-  <li>When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose</li>
+  <li>When the build is completed, you will find scope2d.exe in ../x64/Release or ..x64/Debug, depending on the build type you chose</li>
 </ol>
 
 ### Build scope2d on Linux
