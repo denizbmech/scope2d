@@ -10,7 +10,7 @@ scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a hr
 
 <ol>
 <li>Open either scope2d_release.pro or scope2d_debug.pro depending on the build type you want</li>
-<li>Set EIGENDIR to your installation location of Eigen library. (+)</li>
+<li>Set EIGENDIR to your installation location of Eigen library.</li>
 <li>Set QWTDIR to your installation location of Qwt library.</li>
 <li>Start Qt Console for MSVC</li>
 <li>Change directory to this directory (i.e. <YOUR_PATH>/build/make-msvc)</li>
@@ -36,8 +36,6 @@ depending on which build you want; release or debug</li>
 `nmake install`</li>
 <li>When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose</li>
 </ol>
-
-(+) $$EIGENDIR/Eigen/src must be a valid location. Arrange Eigen installation to fit this.
 
 #### Build 32bit with MinGW
 
