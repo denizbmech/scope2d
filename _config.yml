@@ -1,7 +1,7 @@
 theme: jekyll-theme-cayman
 
 navigation:
-  left:
+  top:
     links:
       - title: About
         href: /about/
