@@ -1,28 +1,70 @@
 ## How to build and install scope2d
 
-There are a number of ways to build and install scope2d on Windows and Linux. scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a href="http://qwt.sourceforge.net">Qwt</a> 6.1.3 or above and <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> 3.3.4 or above to be built.
+Build instructions are given in scope2d's project build folder, in files named `BUILD`. Qt's `QMake` is necessary to build scope2d.
+
+scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a href="http://qwt.sourceforge.net">Qwt</a> 6.1.3 or above and <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> 3.3.4 or above to be built.
 
 ### Build scope2d on Windows
 
 #### Build 64bit with MSVC using nmake
 
 <ol>
-<li>Find Makefile under scope2d/build and in Makefile, change QTDIR to your Qt's installation location.</li>
-<li>Find Makefile.release and Makefile.debug and in these files, change QTDIR, QWTDIR and EIGENDIR to your Qt's, Qwt's and Eigen(+)'s installation locations.</li>
-<li>Start a Windows Command Window.</li>
-<li>Change directory to your MSVC installation to find nmake in the folder amd64. It is usually at C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64<br>Run: <b>cd C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64</b></li>
-<li>Run below line: <br><b>vcvars64.bat</b></li>
-<li>Change directory to the scope2d/build folder</li>
-<li>Run below line: <br><b>nmake</b></li>
+<li>Open either scope2d_release.pro or scope2d_debug.pro depending on the build type you want</li>
+<li>Set EIGENDIR to your installation location of Eigen library. (+)</li>
+<li>Set QWTDIR to your installation location of Qwt library.</li>
+<li>Start Qt Console for MSVC</li>
+<li>Change directory to this directory (i.e. <YOUR_PATH>/build/make-msvc)</li>
+<li>Run 
+
+`qmake scope2d_release.pro`
+
+OR
+
+`qmake scope2d_debug.pro`
+
+depending on which build you want; release or debug</li>
+<li>Change directory to the MSVC folder that has the nmake.exe for 64 bit.
+It is usually at C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64 if you have MS Visual Studio</li>
+<li>Run 
+
+`vcvars64.bat`</li>
+<li>Change directory back to the make-msvc folder</li>
+<li>Run
+
+`nmake`</li>
+<li>When above line finishes executing, run below
+
+`nmake install`</li>
+<li>When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose</li>
 </ol>
 
-(+) $(EIGENDIR)/Eigen/src must be valid. Arrange Eigen installation to fit this. In other words, in your $(EIGENDIR) there must be a folder named Eigen and that folder must contain Eigen's src folder and other source.
-
-At this point, nmake should start building scope2d. Once the build is complete, scope2d.exe will be created in `scope2d/build/Release/` or `scope2d/build/Debug/`
+(+) $$EIGENDIR/Eigen/src must be a valid location. Arrange Eigen installation to fit this.
 
 #### Build 32bit with MinGW
 
-Soon
+<ol>
+  <li>Open either scope2d_release.pro or scope2d_debug.pro depending on the build type you want</li>
+  <li>Set EIGENDIR to your installation location of Eigen library.</li>
+  <li>Set QWTDIR to your installation location of Qwt library.</li>
+  <li>Start Qt Console for MSVC</li>
+  <li>Change directory to this directory (i.e. <YOUR_PATH>/build/make-mingw)</li>
+  <li>Run 
+
+`qmake scope2d_release.pro`
+
+OR
+
+`qmake scope2d_debug.pro`
+
+depending on which build you want; release or debug</li>
+  <li>Run
+
+`mingw32-make`</li>
+  <li>When above line finishes executing, run below
+
+`mingw32-make install`</li>
+  <li>When the build is completed, you will find scope2d.exe in `../x64/Release` or `..x64/Debug`, depending on the build type you chose</li>
+</ol>
 
 ### Build scope2d on Linux
 
