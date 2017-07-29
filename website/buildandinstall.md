@@ -92,17 +92,17 @@ depending on which build you want; release or debug
 
 6. Run 
 
-`qmake scope2d_release.pro`
+    `qmake scope2d_release.pro`
 
-OR
+    OR
 
-`qmake scope2d_debug.pro`
+    `qmake scope2d_debug.pro`
 
 depending on which build you want; release or debug
 
 7. Run
 
-`make`
+    `make`
 
 8. When the build is completed, you will find scope2d in `../x64/Release` or `..x64/Debug`, depending on the build type you chose
 
