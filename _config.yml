@@ -1,17 +1,16 @@
 theme: jekyll-theme-cayman
 
 navigation:
-  top:
-    links:
-      - title: About
-        href: /about/
-      - title: Link 2
-        href: #
-      - title: Dropdown
-        dropdown:
-          - title: SubMenu 1
-            href: #
-          - title: SubMenu 2
-            href: #
-          - title: SubMenu 3
-            href: #
+  links:
+    - title: About
+      href: /about/
+    - title: Link 2
+      href: #
+    - title: Dropdown
+      dropdown:
+        - title: SubMenu 1
+          href: #
+        - title: SubMenu 2
+          href: #
+        - title: SubMenu 3
+          href: #
