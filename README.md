@@ -1,4 +1,3 @@
-## scope2d
 ### Data Visualization and Analysis
 
 scope2d is a general-purpose data visualization and analysis software developed by Deniz Bilgili. scope2d is distributed as a free, open-source program which is developed with [Qt](https://www.qt.io/) , [Qwt](http://qwt.sourceforge.net/), [Eigen](http://eigen.tuxfamily.org) and C++ . 
