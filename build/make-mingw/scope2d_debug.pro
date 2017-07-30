@@ -8,7 +8,8 @@ DESTDIR = ../x64/Debug
 EIGENDIR = C:/Eigen
 QWTDIR = C:/QwtMinGW/Qwt-6.1.3
 QT += core widgets gui
-CONFIG += debug stl c++14 exceptions
+CONFIG += debug stl exceptions
+QMAKE_CXXFLAGS += -std=gnu++14
 DEFINES += WIN64 QT_DLL QWT_DLL QT_WIDGETS_LIB
 RESOURCES += ../src/Resources/resources.qrc
 QTDLLS.path = $$DESTDIR
@@ -80,7 +81,8 @@ HEADERS += ../src/abstract_plot_marker.h \
     ../src/charter_data_picker.h \
     ../src/charter.h \
     ../src/add_marker_side_bands_window.h \
-	../src/csv_writer.h
+	../src/csv_writer.h \
+	../src/normalized_scale_draw.h
 SOURCES += ../src/abstract_plot_marker.cpp \
     ../src/abstract_reader.cpp \
     ../src/add_marker_side_bands_window.cpp \
@@ -121,3 +123,4 @@ SOURCES += ../src/abstract_plot_marker.cpp \
     ../src/synced_plot_zoomer.cpp \
     ../src/vertical_plot_marker.cpp \
 	../src/csv_writer.cpp
+	
