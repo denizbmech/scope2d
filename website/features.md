@@ -191,11 +191,11 @@ Both x and y axes are linearly scaled.
 
 #### Log scale <a id="log-scale"><a href="#top">Top</a></a>
 
-X axis is logarithmically scaled (base 10).
+X axis is logarithmically scaled (base 10). Cannot be applied if the x axis has any negative values.
 
 #### Log-Log scale <a id="log-log-scale"><a href="#top">Top</a></a>
 
-Both x and y axes are logarithmically scaled (base 10).
+Both x and y axes are logarithmically scaled (base 10). Cannot be applied if either the x or the y axis has any negative values.
 
 #### Normalized scale <a id="normalized-scale"><a href="#top">Top</a></a>
 
@@ -205,7 +205,7 @@ When Normalized is selected from the top menubar; firstly, select the axis that 
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/normalized_scale_1.png" alt="Normalized scale 1">
+<img src="https://bilgilid.github.io/scope2d/website/images/normalized_axis_1.png" alt="Normalized scale 1">
 
 </p>
 
@@ -213,7 +213,7 @@ Once the axis is selected, you will be prompted a window to enter the reference 
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/normalized_scale_2.png" alt="Normalized scale 2">
+<img src="https://bilgilid.github.io/scope2d/website/images/normalized_axis_2.png" alt="Normalized scale 2">
 
 </p>
 
