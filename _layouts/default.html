@@ -14,10 +14,10 @@
       <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-        <a href="/website/features.html" class="btn">Features</a>
-        <a href="/website/buildandinstall.html" class="btn">Build and Install</a>
-        <a href="/website/download.html" class="btn">Download Installer</a>
+        <a href="{{ site.github.repository_url }}" class="btn">Project Page</a>
+        <a href="{{site.baseurl}}/website/features.html" class="btn">Features</a>
+        <a href="{{site.baseurl}}/website/buildandinstall.html" class="btn">Build and Install</a>
+        <a href="{{site.baseurl}}/website/download.html" class="btn">Download Installer</a>
       {% endif %}
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
