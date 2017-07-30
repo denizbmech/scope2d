@@ -31,6 +31,7 @@ DEPENDPATH += ..
 MOC_DIR += ../src/GeneratedFiles/debug
 OBJECTS_DIR += ../src/debug
 UI_DIR += ../src/GeneratedFiles
+RC_ICONS = ../src/Resources/s2d_app_icon/s2d_app_icon.ico
 RCC_DIR += ../src/GeneratedFiles
 HEADERS += ../src/abstract_plot_marker.h \
     ../src/abstract_reader.h \
