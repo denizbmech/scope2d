@@ -66,7 +66,8 @@ HEADERS += ../src/abstract_plot_marker.h \
     ../src/charter_data_picker.h \
     ../src/charter.h \
     ../src/add_marker_side_bands_window.h \
-	../src/csv_writer.h
+	../src/csv_writer.h \
+	../src/normalized_scale_draw.h
 SOURCES += ../src/abstract_plot_marker.cpp \
     ../src/abstract_reader.cpp \
     ../src/add_marker_side_bands_window.cpp \
