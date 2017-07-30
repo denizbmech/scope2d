@@ -69,6 +69,8 @@ void MainMenuBar::m_create_actions() {
 
 	m_create_actions_file();
 	m_create_actions_plot();
+	m_create_actions_modify();
+	m_create_actions_charters();
 	m_create_actions_markers();
 	m_create_actions_style();
 	m_create_actions_info();
@@ -93,10 +95,6 @@ void MainMenuBar::m_create_actions_file() {
 
 void MainMenuBar::m_create_actions_plot() {
 
-	m_modifyTitleRequest = new QAction("Plot Title...", this);
-	m_modifyHAxisLabelRequest = new QAction("H Axis Label...", this);
-	m_modifyVAxisLabelRequest = new QAction("V Axis Label...", this);
-
 	m_toggleHGridRequest = new QAction("H Major Grid", this);
 	m_toggleVGridRequest = new QAction("V Major Grid", this);
 	m_toggleHMinGridRequest = new QAction("H Minor Grid", this);
@@ -106,36 +104,9 @@ void MainMenuBar::m_create_actions_plot() {
 	m_toggleHMinGridRequest->setCheckable(true);
 	m_toggleVMinGridRequest->setCheckable(true);
 
-	m_toggleCharter1Request = new QAction("Charter1", this);
-	m_toggleCharter2Request = new QAction("Charter2", this);
-	m_toggleCharter3Request = new QAction("Charter3", this);
-	m_toggleCharter1Request->setCheckable(true);
-	m_toggleCharter2Request->setCheckable(true);
-	m_toggleCharter3Request->setCheckable(true);
-
-	m_setActiveCharterRequest = new QActionGroup(this);
-	m_setActiveCharter1Request = new QAction("Charter1", 
-		m_setActiveCharterRequest);
-	m_setActiveCharter2Request = new QAction("Charter2", 
-		m_setActiveCharterRequest);
-	m_setActiveCharter3Request = new QAction("Charter3", 
-		m_setActiveCharterRequest);
-	m_setActiveCharter1Request->setCheckable(true);
-	m_setActiveCharter2Request->setCheckable(true);
-	m_setActiveCharter3Request->setCheckable(true);
-
 	m_logScaleRequest = new QAction("Logarithmic", this);
 	m_loglogScaleRequest = new QAction("Log - Log", this);
 	m_linScaleRequest = new QAction("Linear", this);
-
-	m_clearActiveCharterRequest = new QAction("Clear active charter", this);
-
-	connect(m_modifyTitleRequest, SIGNAL(triggered(bool)),
-		this, SLOT(make_modify_title_window()));
-	connect(m_modifyHAxisLabelRequest, SIGNAL(triggered(bool)),
-		this, SLOT(make_modify_haxis_label_window()));
-	connect(m_modifyVAxisLabelRequest, SIGNAL(triggered(bool)),
-		this, SLOT(make_modify_vaxis_label_window()));
 
 	connect(m_toggleHGridRequest, SIGNAL(triggered(bool)),
 		this, SLOT(request_toggle_h_grid(bool)));
@@ -145,6 +116,52 @@ void MainMenuBar::m_create_actions_plot() {
 		this, SLOT(request_toggle_hmin_grid(bool)));
 	connect(m_toggleVMinGridRequest, SIGNAL(triggered(bool)),
 		this, SLOT(request_toggle_vmin_grid(bool)));
+
+	connect(m_logScaleRequest, SIGNAL(triggered(bool)),
+		this, SLOT(request_set_log_scale()));
+	connect(m_loglogScaleRequest, SIGNAL(triggered(bool)),
+		this, SLOT(request_set_log_log_scale()));
+	connect(m_linScaleRequest, SIGNAL(triggered(bool)),
+		this, SLOT(request_set_lin_scale()));
+
+}
+
+void MainMenuBar::m_create_actions_modify() {
+
+	m_modifyTitleRequest = new QAction("Plot Title...", this);
+	m_modifyHAxisLabelRequest = new QAction("H Axis Label...", this);
+	m_modifyVAxisLabelRequest = new QAction("V Axis Label...", this);
+
+	connect(m_modifyTitleRequest, SIGNAL(triggered(bool)),
+		this, SLOT(make_modify_title_window()));
+	connect(m_modifyHAxisLabelRequest, SIGNAL(triggered(bool)),
+		this, SLOT(make_modify_haxis_label_window()));
+	connect(m_modifyVAxisLabelRequest, SIGNAL(triggered(bool)),
+		this, SLOT(make_modify_vaxis_label_window()));
+
+}
+
+void MainMenuBar::m_create_actions_charters() {
+
+	m_toggleCharter1Request = new QAction("Charter1", this);
+	m_toggleCharter2Request = new QAction("Charter2", this);
+	m_toggleCharter3Request = new QAction("Charter3", this);
+	m_toggleCharter1Request->setCheckable(true);
+	m_toggleCharter2Request->setCheckable(true);
+	m_toggleCharter3Request->setCheckable(true);
+
+	m_setActiveCharterRequest = new QActionGroup(this);
+	m_setActiveCharter1Request = new QAction("Charter1",
+		m_setActiveCharterRequest);
+	m_setActiveCharter2Request = new QAction("Charter2",
+		m_setActiveCharterRequest);
+	m_setActiveCharter3Request = new QAction("Charter3",
+		m_setActiveCharterRequest);
+	m_setActiveCharter1Request->setCheckable(true);
+	m_setActiveCharter2Request->setCheckable(true);
+	m_setActiveCharter3Request->setCheckable(true);
+
+	m_clearActiveCharterRequest = new QAction("Clear active charter", this);
 
 	connect(m_toggleCharter1Request, SIGNAL(triggered(bool)),
 		this, SLOT(request_toggle_charter1(bool)));
@@ -159,13 +176,6 @@ void MainMenuBar::m_create_actions_plot() {
 		this, SLOT(request_setActive_charter2()));
 	connect(m_setActiveCharter3Request, SIGNAL(triggered(bool)),
 		this, SLOT(request_setActive_charter3()));
-
-	connect(m_logScaleRequest, SIGNAL(triggered(bool)),
-		this, SLOT(request_set_log_scale()));
-	connect(m_loglogScaleRequest, SIGNAL(triggered(bool)),
-		this, SLOT(request_set_log_log_scale()));
-	connect(m_linScaleRequest, SIGNAL(triggered(bool)),
-		this, SLOT(request_set_lin_scale()));
 
 	connect(m_clearActiveCharterRequest, SIGNAL(triggered(bool)),
 		this, SLOT(request_clear_active_charter()));
@@ -239,6 +249,8 @@ void MainMenuBar::m_create_menus() {
 	m_create_actions();
 	m_create_menus_file();
 	m_create_menus_plot();
+	m_create_menus_modify();
+	m_create_menus_charters();
 	m_create_menus_markers();
 	m_create_menus_style();
 	m_create_menus_info();
@@ -258,35 +270,46 @@ void MainMenuBar::m_create_menus_plot() {
 
 	m_plotMenu = this->addMenu("Plot");
 
-	m_plotMenuModify = m_plotMenu->addMenu("Modify");
-	m_plotMenuModify->addAction(m_modifyTitleRequest);
-	m_plotMenuModify->addAction(m_modifyHAxisLabelRequest);
-	m_plotMenuModify->addAction(m_modifyVAxisLabelRequest);
-
 	m_plotMenuGrid = m_plotMenu->addMenu("Grid");
 	m_plotMenuGrid->addAction(m_toggleHGridRequest);
 	m_plotMenuGrid->addAction(m_toggleVGridRequest);
 	m_plotMenuGrid->addAction(m_toggleHMinGridRequest);
 	m_plotMenuGrid->addAction(m_toggleVMinGridRequest);
 
-	m_showHideCharters = m_plotMenu->addMenu("Show/Hide Charters");
-	m_showHideCharters->addAction(m_toggleCharter1Request);
-	m_showHideCharters->addAction(m_toggleCharter2Request);
-	m_showHideCharters->addAction(m_toggleCharter3Request);
-
-	m_setActiveCharter = m_plotMenu->addMenu("Set Active Charter");
-	m_setActiveCharter->addAction(m_setActiveCharter1Request);
-	m_setActiveCharter->addAction(m_setActiveCharter2Request);
-	m_setActiveCharter->addAction(m_setActiveCharter3Request);
-
 	m_plotMenuScale = m_plotMenu->addMenu("Scale");
 	m_plotMenuScale->addAction(m_logScaleRequest);
 	m_plotMenuScale->addAction(m_loglogScaleRequest);
 	m_plotMenuScale->addAction(m_linScaleRequest);
 
-	m_plotMenu->addSeparator();
+}
 
-	m_plotMenu->addAction(m_clearActiveCharterRequest);
+void MainMenuBar::m_create_menus_modify() {
+
+	m_modifyMenu = m_plotMenu = this->addMenu("Modify");
+
+	m_modifyMenu->addAction(m_modifyTitleRequest);
+	m_modifyMenu->addAction(m_modifyHAxisLabelRequest);
+	m_modifyMenu->addAction(m_modifyVAxisLabelRequest);
+
+}
+
+void MainMenuBar::m_create_menus_charters() {
+
+	m_chartersMenu = this->addMenu("Charters");
+
+	m_showHideCharters = m_chartersMenu->addMenu("Show/Hide Charters");
+	m_showHideCharters->addAction(m_toggleCharter1Request);
+	m_showHideCharters->addAction(m_toggleCharter2Request);
+	m_showHideCharters->addAction(m_toggleCharter3Request);
+
+	m_setActiveCharter = m_chartersMenu->addMenu("Set Active Charter");
+	m_setActiveCharter->addAction(m_setActiveCharter1Request);
+	m_setActiveCharter->addAction(m_setActiveCharter2Request);
+	m_setActiveCharter->addAction(m_setActiveCharter3Request);
+
+	m_chartersMenu->addSeparator();
+
+	m_chartersMenu->addAction(m_clearActiveCharterRequest);
 
 }
 
@@ -692,6 +715,7 @@ void MainMenuBar::make_about_window() {
 
 	QString title("About scope2d");
 	QString text =
+		"<h3>About scope2d</h3>"
 		"<p align='justify'>"
 		"scope2d is a general-purpose data visualization and analysis software "
 		"developed by Deniz Bilgili. scope2d is distributed as a free, "

@@ -65,11 +65,14 @@ private:
 	QMenu* m_fileMenuImport;
 
 	QMenu* m_plotMenu;
-	QMenu* m_plotMenuModify;
 	QMenu* m_plotMenuGrid;
+	QMenu* m_plotMenuScale;
+
+	QMenu* m_modifyMenu;
+
+	QMenu* m_chartersMenu;
 	QMenu* m_showHideCharters;
 	QMenu* m_setActiveCharter;
-	QMenu* m_plotMenuScale;
 
 	QMenu* m_markersMenu;
 
@@ -127,6 +130,8 @@ private:
 	void m_create_actions();
 	void m_create_actions_file();
 	void m_create_actions_plot();
+	void m_create_actions_modify();
+	void m_create_actions_charters();
 	void m_create_actions_markers();
 	void m_create_actions_style();
 	void m_create_actions_info();
@@ -134,6 +139,8 @@ private:
 	void m_create_menus();
 	void m_create_menus_file();
 	void m_create_menus_plot();
+	void m_create_menus_modify();
+	void m_create_menus_charters();
 	void m_create_menus_markers();
 	void m_create_menus_style();
 	void m_create_menus_info();

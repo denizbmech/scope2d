@@ -20,6 +20,7 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "main_window.h"
 #include <QApplication>
+#include <QSystemTrayIcon>
 
 int main(int argc, char* argv[]){
 	
@@ -27,6 +28,10 @@ int main(int argc, char* argv[]){
 
 	MainWindow* wind = new MainWindow;
 	wind->setWindowIcon(QIcon(":/s2d_app_icon/s2d_app_icon.png"));
+
+	QSystemTrayIcon* trayIcon = new QSystemTrayIcon(wind);
+	trayIcon->setIcon(QIcon(":/s2d_app_icon/s2d_app_icon.ico"));
+
 	wind->show();
 
     return a.exec();
