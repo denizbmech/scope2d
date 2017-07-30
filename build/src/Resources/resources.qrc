@@ -12,6 +12,7 @@
 	<file>marker/marker_p.png</file>
 	<file>marker/marker_v.png</file>
 	<file>s2d_app_icon/s2d_app_icon.png</file>
+	<file>s2d_app_icon/s2d_app_icon.ico</file>
 	<file>toggle_grid/toggle_h_major.png</file>
 	<file>toggle_grid/toggle_h_minor.png</file>
 	<file>toggle_grid/toggle_v_major.png</file>
