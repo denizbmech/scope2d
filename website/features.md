@@ -19,6 +19,13 @@
   <li><a href="#active-charter">Active charter</a></li>
   <li><a href="#zooming">Zooming</a></li>
   </ul>
+<li><a href="#plot-scales">Plot Scales</a></li>
+  <ul>
+  <li><a href="#linear-scale">Linear scale</a></li>
+  <li><a href="#log-scale">Logarithmic scale</a></li>
+  <li><a href="#log-log-scale">Log-Log scale</a></li>
+    <li><a href="#normalized-scale">Normalized scale</a></li>
+  </ul>
 <li><a href="#calculators">Calculators</a></li>
   <ul>
   <li><a href="#calculating-expr">Calculating expressions</a></li>
@@ -173,6 +180,44 @@ There are two types of zooming in scope2d: Synchronized and Non-synchronized zoo
 - Non-synchronized zooming: Traditional zooming. press and hold LEFT MOUSE BUTTON on a charter and drag it anywhere to zoom. To revert the last zoom, press MIDDLE MOUSE BUTTON and to revert all zooms, press RIGHT MOUSE BUTTON.
 
 - Synchronized zooming: When multiple charters are used to analyze multiple sets of relevant data, a synchronized zooming capability between charters is useful. scope2d offers such functionality. When synchronized zoom is used, a unit zoombox will be created first, and then this unit zoombox will be applied to all charters by scaling with respect to axis limits. To sync-zoom multiple charters, while holding down the CTRL key, press and hold LEFT MOUSE BUTTON and drag the cursor anywhere to draw the zoombox.
+
+### Plot Scales <a id="plot-scales"><a href="#top">Top</a></a>
+
+Different scales can be used to represent the same set of data. There are 4 scales available in scope2d. To select one of the scales available, go to the Plot menu on the top menubar, and then go to Scale. There, you can select one of the 4 scales available. The selected scale will be applied to the active charter only.
+
+#### Linear scale <a id="linear-scale"><a href="#top">Top</a></a>
+
+Both x and y axes are linearly scaled.
+
+#### Log scale <a id="log-scale"><a href="#top">Top</a></a>
+
+X axis is logarithmically scaled (base 10).
+
+#### Log-Log scale <a id="log-log-scale"><a href="#top">Top</a></a>
+
+Both x and y axes are logarithmically scaled (base 10).
+
+#### Normalized scale <a id="normalized-scale"><a href="#top">Top</a></a>
+
+The selected axis (x or y, or both) can be normalized with respect to a reference value (which cannot be zero). This feature is useful as it can be used for a variety of purposes. An example of such purposes could be obtaining an order-normalized frequency axis for vibration analysis (i.e. frequency axis normalized with respect to shaft rotation speed, or 1X).
+
+When Normalized is selected from the top menubar; firstly, select the axis that you want to normalize:
+
+<p align="center">
+
+<img src="https://bilgilid.github.io/scope2d/website/images/normalized_scale_1.png" alt="Normalized scale 1">
+
+</p>
+
+Once the axis is selected, you will be prompted a window to enter the reference value that will be used for normalization. All values on the selected axis will be divided by this value.
+
+<p align="center">
+
+<img src="https://bilgilid.github.io/scope2d/website/images/normalized_scale_2.png" alt="Normalized scale 2">
+
+</p>
+
+If you want to revert the normalization, simply normalize again with a reference value of 1.0.
 
 ### Calculators <a id="calculators"><a href="#top">Top</a></a>
 
