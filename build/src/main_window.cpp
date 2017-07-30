@@ -176,6 +176,26 @@ void MainWindow::set_lin_scale() {
 
 }
 
+void MainWindow::set_normalized_scale(int axisId, double reference) {
+
+	QwtPlot::Axis axisIdQwt;
+
+	switch(axisId) {
+		case 0:
+			axisIdQwt = QwtPlot::xBottom;
+			break;
+		case 1:
+			axisIdQwt = QwtPlot::yLeft;
+			break;
+		default:
+			axisIdQwt = QwtPlot::xBottom;
+			break;
+	}
+
+	m_activeCharter->use_normalized_scale(axisIdQwt, reference);
+
+}
+
 void MainWindow::clear_active_charter() {
 
 	QMessageBox confirmClearActiveCharterWindow;
@@ -287,6 +307,9 @@ void MainWindow::m_create_main_menubar() {
 	connect(m_mainMenuBar,
 		SIGNAL(setLinScaleRequested()),
 		this, SLOT(set_lin_scale()));
+	connect(m_mainMenuBar,
+		SIGNAL(setNormalizedScaleRequested(int, double)),
+		this, SLOT(set_normalized_scale(int, double)));
 
 	connect(m_mainMenuBar,
 		SIGNAL(clearActiveCharterRequested()),

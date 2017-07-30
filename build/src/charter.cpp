@@ -212,6 +212,14 @@ void Charter::use_linear_scale() {
 
 }
 
+void Charter::use_normalized_scale(QwtPlot::Axis axisId, double reference) {
+
+	NormalizedScaleDraw* normalizedTicks = new NormalizedScaleDraw(reference);
+	this->setAxisScaleDraw(axisId, normalizedTicks);
+	this->rescale_axes();
+
+}
+
 void Charter::clear() {
 
 	QwtPlotItemList curves = this->itemList(QwtPlotItem::Rtti_PlotCurve);

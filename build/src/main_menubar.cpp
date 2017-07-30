@@ -107,6 +107,7 @@ void MainMenuBar::m_create_actions_plot() {
 	m_logScaleRequest = new QAction("Logarithmic", this);
 	m_loglogScaleRequest = new QAction("Log - Log", this);
 	m_linScaleRequest = new QAction("Linear", this);
+	m_normalizedScaleRequest = new QAction("Normalized", this);
 
 	connect(m_toggleHGridRequest, SIGNAL(triggered(bool)),
 		this, SLOT(request_toggle_h_grid(bool)));
@@ -123,6 +124,8 @@ void MainMenuBar::m_create_actions_plot() {
 		this, SLOT(request_set_log_log_scale()));
 	connect(m_linScaleRequest, SIGNAL(triggered(bool)),
 		this, SLOT(request_set_lin_scale()));
+	connect(m_normalizedScaleRequest, SIGNAL(triggered(bool)),
+		this, SLOT(request_set_normalized_scale()));
 
 }
 
@@ -280,6 +283,7 @@ void MainMenuBar::m_create_menus_plot() {
 	m_plotMenuScale->addAction(m_logScaleRequest);
 	m_plotMenuScale->addAction(m_loglogScaleRequest);
 	m_plotMenuScale->addAction(m_linScaleRequest);
+	m_plotMenuScale->addAction(m_normalizedScaleRequest);
 
 }
 
@@ -521,6 +525,34 @@ void MainMenuBar::request_set_log_log_scale() {
 void MainMenuBar::request_set_lin_scale() {
 
 	emit setLinScaleRequested();
+
+}
+
+void MainMenuBar::request_set_normalized_scale() {
+
+	bool axisIdGood;
+
+	QString axisName = QInputDialog::getItem(this,
+		"Normalize axis",
+		"Select axis to normalize",
+		QStringList() << "x axis" << "y axis",
+		0, false, &axisIdGood);
+
+	int axisId = 0;
+	if(axisName == "y axis") axisId = 1;
+
+	if(axisIdGood) {
+		bool referenceGood;
+
+		double reference = QInputDialog::getDouble(this,
+			"Normalize axis",
+			"Enter reference value (divide everything by reference)",
+			1.0, 0.0, 2147483647.0, 15, &referenceGood);
+
+		if(referenceGood && reference != 0.0) {
+			emit setNormalizedScaleRequested(axisId, reference);
+		}
+	}
 
 }
 

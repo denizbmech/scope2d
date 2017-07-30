@@ -38,6 +38,7 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 #include "abstract_plot_marker.h"
 #include "synced_plot_zoomer.h"
 #include "nonsynced_plot_zoomer.h"
+#include "normalized_scale_draw.h"
 
 
 class Charter: public QwtPlot {
@@ -67,6 +68,7 @@ public:
 	void use_log_scale();
 	void use_log_log_scale();
 	void use_linear_scale();
+	void use_normalized_scale(QwtPlot::Axis axisId, double reference);
 
 	void clear();
 

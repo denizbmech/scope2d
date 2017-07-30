@@ -108,6 +108,7 @@ private:
 	QAction* m_logScaleRequest;
 	QAction* m_loglogScaleRequest;
 	QAction* m_linScaleRequest;
+	QAction* m_normalizedScaleRequest;
 
 	QAction* m_clearActiveCharterRequest;
 
@@ -169,6 +170,7 @@ public slots:
 	void request_set_log_scale();
 	void request_set_log_log_scale();
 	void request_set_lin_scale();
+	void request_set_normalized_scale();
 	void request_clear_active_charter();
 
 	void request_modify_canvas_color();
@@ -212,6 +214,7 @@ signals:
 	void setLogScaleRequested();
 	void setLogLogScaleRequested();
 	void setLinScaleRequested();
+	void setNormalizedScaleRequested(int, double);
 
 	void clearActiveCharterRequested();
 

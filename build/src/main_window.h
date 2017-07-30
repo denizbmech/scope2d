@@ -113,6 +113,7 @@ public slots:
 	void set_log_scale();
 	void set_log_log_scale();
 	void set_lin_scale();
+	void set_normalized_scale(int axisId, double reference);
 
 	void clear_active_charter();
 
