@@ -191,7 +191,7 @@ Both x and y axes are linearly scaled.
 
 #### Log scale <a id="log-scale"><a href="#top">Top</a></a>
 
-X axis is logarithmically scaled (base 10). Cannot be applied if the x axis has any negative values.
+Y axis is logarithmically scaled (base 10). Cannot be applied if the x axis has any negative values.
 
 #### Log-Log scale <a id="log-log-scale"><a href="#top">Top</a></a>
 
