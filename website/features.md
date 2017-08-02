@@ -164,9 +164,9 @@ This functionality is designed to identify which data points are actually sideba
 
 **Hint: If you click in the spin boxes for band count and band ticks in dynamic mode, you can use the up and down buttons on the keyboard to quickly increment or decrement the values.**
 
-**Notes:
-- This functionality is meaningful only when a single curve is analyzed at a time. Therefore, make sure that the charter you are working on has ONLY ONE curve on it when you want to use this functionality.
-- The data MUST be equally spaced along its horizontal (or independent) axis.**
+**Notes:**
+**- This functionality is meaningful only when a single curve is analyzed at a time. Therefore, make sure that the charter you are working on has ONLY ONE curve on it when you want to use this functionality.**
+**- The data MUST be equally spaced along its horizontal (or independent) axis.**
 
 ### Charters <a id="charters"><a href="#top">Top</a></a>
 
