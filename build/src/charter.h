@@ -55,6 +55,8 @@ class Charter: public QwtPlot {
 public:
 	Charter(QWidget* parent);
 
+	double minimum_haxis_step() const;
+
 	void toggle_h_grid(bool checked);
 	void toggle_v_grid(bool checked);
 	void toggle_hmin_grid(bool checked);

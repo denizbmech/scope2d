@@ -24,6 +24,8 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDialog>
 #include <QGridLayout>
 #include <QPushButton>
+#include <QSpinBox>
+#include <QCheckBox>
 #include <QLineEdit>
 #include <QLabel>
 
@@ -33,19 +35,28 @@ class AddMarkerSideBandsWindow: public QDialog {
 public:
 	AddMarkerSideBandsWindow(QWidget* parent);
 
+	virtual ~AddMarkerSideBandsWindow() { this->clearFocus(); } // just in case?
+
 private:
 	Q_OBJECT
 
 	QGridLayout* m_grid;
 	QPushButton* m_submitButton;
 	QLineEdit* m_entryBoxBandGap;
-	QLineEdit* m_entryBoxBandCount;
+	QSpinBox* m_spinBoxBandCount;
+	QSpinBox* m_spinBoxBandTicks;
+	QCheckBox* m_checkBoxIsDynamic;
+	QLabel* m_bandGapLabel;
+	QLabel* m_bandTicksLabel;
 
 public slots:
-	void emit_value();
+	void submit_static_values();
+	void manage_spin_box_value_changed();
+	void toggle_dynamic_mode(int dynBoxState);
 
 signals:
-	void submitButtonClicked(double, int);
+	void sideBandsRequested(double, int);
+	void sideBandTicksRequested(int, int);
 
 };
 

@@ -77,6 +77,7 @@ public slots:
 	void delete_harmonics();
 	void make_add_side_bands_window();
 	void add_side_bands(double sideBandGap, int bandCount);
+	void request_dynamic_side_bands(int numOfTicks, int bandCount);
 	void delete_side_bands();
 	void request_draw_marker();
 	void toggle_marker();
@@ -92,6 +93,7 @@ public slots:
 
 signals:
 	void drawMarkerRequested(PlotMarkerInstance*);
+	void dynamicSideBandsRequested(QwtPlot*, int, int);
 
 };
 

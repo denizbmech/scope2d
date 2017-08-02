@@ -299,3 +299,27 @@ void Charter::emit_markerAttached(AbstractPlotMarker* marker) {
 	if(marker) emit markerAttached(marker);
 
 }
+
+double Charter::minimum_haxis_step() const {
+
+	double minimumStep = 0.0;
+
+	QwtPlotItemList itemList = this->itemList(QwtPlotItem::Rtti_PlotCurve);
+
+	for(auto plotItem: itemList) {
+		QwtPlotCurve* nextCurve = static_cast<QwtPlotCurve*>(plotItem);
+
+		if(nextCurve->dataSize() > 1) { // make sure there are at least 2 points
+			QPointF sample0 = nextCurve->sample(0);
+			QPointF sample1 = nextCurve->sample(1);
+
+			double hAxisStep = sample1.x() - sample0.x();
+
+			if(hAxisStep < minimumStep || minimumStep == 0.0) 
+				minimumStep = hAxisStep;
+		}
+	}
+
+	return minimumStep;
+
+}

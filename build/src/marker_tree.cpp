@@ -202,10 +202,12 @@ void MarkerTree::make_add_side_bands_window() {
 
 	AddMarkerSideBandsWindow* window = new AddMarkerSideBandsWindow(this);
 
-	connect(window, SIGNAL(submitButtonClicked(double, int)),
+	connect(window, SIGNAL(sideBandsRequested(double, int)),
 		this, SLOT(add_side_bands(double, int)));
+	connect(window, SIGNAL(sideBandTicksRequested(int, int)),
+		this, SLOT(request_dynamic_side_bands(int, int)));
 
-	window->exec();
+	window->show();
 
 }
 
@@ -221,6 +223,19 @@ void MarkerTree::add_side_bands(double sideBandGap,
 		marker->add_side_bands(sideBandGap, bandCount);
 	}
 	
+}
+
+void MarkerTree::request_dynamic_side_bands(int numOfTicks, int bandCount) {
+
+	PlotMarkerInstance* instance =
+		static_cast<PlotMarkerInstance*>(m_currentItem);
+
+	VerticalPlotMarker* marker =
+		static_cast<VerticalPlotMarker*>(instance->data());
+
+	if(marker) 
+		emit dynamicSideBandsRequested(marker->plot(), numOfTicks, bandCount);
+
 }
 
 void MarkerTree::delete_side_bands() {

@@ -241,6 +241,8 @@ void MainWindow::m_create_marker_tree() {
 
 	connect(m_markerTree, SIGNAL(drawMarkerRequested(PlotMarkerInstance*)),
 		this, SLOT(draw_marker(PlotMarkerInstance*)));
+	connect(m_markerTree, SIGNAL(dynamicSideBandsRequested(QwtPlot*, int, int)),
+		this, SLOT(add_dynamic_side_bands(QwtPlot*, int, int)));
 
 }
 
@@ -648,6 +650,18 @@ void MainWindow::draw_plot(PlotCurve* curve) {
 void MainWindow::draw_marker(PlotMarkerInstance* instance) {
 
 	instance->data()->attach(m_activeCharter);
+
+}
+
+void MainWindow::add_dynamic_side_bands(QwtPlot* plot, int numOfTicks, 
+	int bandCount) {
+
+	Charter* charter = static_cast<Charter*>(plot);
+
+	double minimumStep = charter->minimum_haxis_step();
+	double sideBandGap = minimumStep * numOfTicks;
+
+	m_markerTree->add_side_bands(sideBandGap, bandCount);
 
 }
 

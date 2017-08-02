@@ -125,6 +125,7 @@ public slots:
 
 	void draw_plot(PlotCurve* curve);
 	void draw_marker(PlotMarkerInstance* marker);
+	void add_dynamic_side_bands(QwtPlot* plot, int numOfTicks, int bandCount);
 
 	void toggle_h_grid(bool checked);
 	void toggle_v_grid(bool checked);
