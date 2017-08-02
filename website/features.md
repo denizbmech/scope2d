@@ -12,6 +12,7 @@
   <ul>
   <li><a href="#draw-markers">How to quickly draw markers</a></li>
   <li><a href="#harmonics-sidebands">Harmonics and sidebands</a></li>
+  <li><a href="#dynamic-sidebands">Adding sidebands dynamically</a></li>
   </ul>
 <li><a href="#charters">Charters</a></li>
   <ul>
@@ -140,6 +141,32 @@ Sidebands are defined as equally-spaced neighboring vertical markers which are p
 <img src="https://bilgilid.github.io/scope2d/website/images/sidebands.png" alt="Sidebands">
 
 </p>
+
+#### Adding sidebands dynamically <a id="dynamic-sidebands"><a href="#top">Top</a></a>
+
+In data analysis and especially spectrum (vibration) analysis, sidebands of harmonics may contain important information about the data and the phenomenon its related to. For example, it is known that an amplitude modulation in the time domain data of a signal will appear as sidebands of a specific frequency (modulation frequency) in the signal's frequency spectrum. And this modulation may be due to a very specific event that is important for the data analyst to know.
+
+To quickly search and identify sidebands in a data, dynamic sideband feature of scope2d may be used. It is similar to the regular way of adding sidebands, which is considered the "static" way since the user needs to enter a specific band gap. On the other hand, in dynamic mode, user selects a "band tick" rather than a band gap and the selections made are instantly updated and shown on the charter. One band tick is equal to a band gap of one times the data step size.
+
+For example, say the X coordinates in the data go like: 0, 0.1, 0.2, 0.3, ... Therefore the step size (or resolution) is 0.1. Assume there is a vertical marker at X = 2.0. If the user selects to draw sidebands to this marker with a band tick of 3, then the band gap will be;
+
+`Band Gap = Band Tick * Step Size = 3 * 0.1 = 0.3 (in units of the X Axis)`
+
+Therefore, the user will see sidebands drawn at `2.0 - 0.3 = 1.7` AND `2.0 + 0.3 = 2.3`.
+
+This functionality is designed to identify which data points are actually sidebands of a specific marker in the plot.
+
+<p align="center">
+
+<img src="https://bilgilid.github.io/scope2d/website/images/dynamic-sidebands.png" alt="Sidebands">
+
+</p>
+
+**Hint: If you click in the spin boxes for band count and band ticks in dynamic mode, you can use the up and down buttons on the keyboard to quickly increment or decrement the values.**
+
+**Notes:
+- This functionality is meaningful only when a single curve is analyzed at a time. Therefore, make sure that the charter you are working on has ONLY ONE curve on it when you want to use this functionality.
+- The data MUST be equally spaced along its horizontal (or independent) axis.**
 
 ### Charters <a id="charters"><a href="#top">Top</a></a>
 
