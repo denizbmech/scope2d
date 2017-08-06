@@ -10,7 +10,7 @@
 Notes:
 <ul>
 <li>
-- Your antivirus will probably want to scan the installer executables and the application's executable on first use. Let the antivirus scan the executables and then use the program. 
+Your antivirus will probably want to scan the installer executables and the application's executable on first use. Let the antivirus scan the executables and then use the program. 
 </li>
 </ul>
 </font>
