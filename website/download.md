@@ -6,7 +6,7 @@
 - Open the folder it creates (i.e. `scope2dSetup`)
 - Run the `setup.exe` file in the folder and follow the instructions
 
-<font size = "5">
+<font size = "2">
 Notes:
 <ul>
 <li>
