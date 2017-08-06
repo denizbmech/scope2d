@@ -1,7 +1,7 @@
 /*
 This file is part of scope2d.
 
-scope2d: Data Visualization and Analysis Software
+scope2d: 2-D Data Visualization and Analysis Software
 Copyright (C) 2017  Deniz Bilgili
 
 scope2d is free software: you can redistribute it and/or modify
@@ -452,13 +452,22 @@ void InstanceTree::make_calculate_instance_window() {
 	ParentInstance* currentInstance
 		= static_cast<ParentInstance*>(m_currentItem);
 
-	VectorCalculatorWindow* newVectorCalcWin = 
-		new VectorCalculatorWindow(this, currentInstance);
+	bool userClickedOk;
 
-	connect(newVectorCalcWin, SIGNAL(vectorCalculated(ColVector)),
-		this, SLOT(catch_calculated_vector(ColVector)));
+	int numberOfInputs = QInputDialog::getInt(this, 
+		"Calculate new data",
+		QString("Enter the number of inputs: ").leftJustified(50, ' '), 
+		1, 1, 5, 1, &userClickedOk);
 
-	newVectorCalcWin->exec();
+	if(userClickedOk) {
+		VectorCalculatorWindow* newVectorCalcWin =
+			new VectorCalculatorWindow(this, currentInstance, numberOfInputs);
+
+		connect(newVectorCalcWin, SIGNAL(vectorCalculated(ColVector)),
+			this, SLOT(catch_calculated_vector(ColVector)));
+
+		newVectorCalcWin->exec();
+	}
 
 }
 

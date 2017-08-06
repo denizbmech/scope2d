@@ -1,7 +1,7 @@
 /*
 This file is part of scope2d.
 
-scope2d: Data Visualization and Analysis Software
+scope2d: 2-D Data Visualization and Analysis Software
 Copyright (C) 2017  Deniz Bilgili
 
 scope2d is free software: you can redistribute it and/or modify
@@ -39,7 +39,8 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 class VectorCalculatorWindow: public QDialog {
 
 public:
-	VectorCalculatorWindow(QWidget* parent, ParentInstance* instance);
+	VectorCalculatorWindow(QWidget* parent, ParentInstance* instance, 
+		int numberOfInputs);
 
 	virtual ~VectorCalculatorWindow() = default;
 
@@ -63,7 +64,6 @@ private:
 
 public slots:
 	void calculate_vector();
-	void set_num_inputs(int numInputs);
 	void show_hide_expression_input(int index);
 
 signals:

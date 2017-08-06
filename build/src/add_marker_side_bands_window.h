@@ -1,7 +1,7 @@
 /*
 This file is part of scope2d.
 
-scope2d: Data Visualization and Analysis Software
+scope2d: 2-D Data Visualization and Analysis Software
 Copyright (C) 2017  Deniz Bilgili
 
 scope2d is free software: you can redistribute it and/or modify
@@ -34,8 +34,6 @@ class AddMarkerSideBandsWindow: public QDialog {
 
 public:
 	AddMarkerSideBandsWindow(QWidget* parent);
-
-	virtual ~AddMarkerSideBandsWindow() { this->clearFocus(); } // just in case?
 
 private:
 	Q_OBJECT
