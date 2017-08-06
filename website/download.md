@@ -7,8 +7,6 @@ To install on Windows:
 
 To install on Linux: *Installer will be added soon*
 
-Known issues:
-- When the horizontal axis is normalized, the major tick marks are not at 1, 2, 3 etc; so it is difficult to see the normalization on the horizontal axis.
+### Project releases page
 
-Coming features:
-- Support for Brüel & Kjær PULSE output file format
+For more information about the releases, visit the [releases page](https://github.com/bilgilid/scope2d/releases)
