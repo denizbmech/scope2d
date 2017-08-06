@@ -17,4 +17,4 @@ Notes:
 
 ### Project releases page
 
-For more information about the releases, visit the [releases page](https://github.com/bilgilid/scope2d/releases)
+For more information about the releases, visit the [releases page](https://github.com/bilgilid/scope2d/releases).
