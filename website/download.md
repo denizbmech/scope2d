@@ -15,8 +15,6 @@ Notes:
 </ul>
 </font>
 
-<br/><br/>
-
 <font size = "1">Since scope2d is a free software, I did not yet want to pay for a digital signature... I am open to suggestions on how to get a digital signature for free or cheap.</font>
 
 ### Install on Linux
