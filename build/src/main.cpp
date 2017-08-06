@@ -29,14 +29,14 @@ int main(int argc, char* argv[]){
 
 	MainWindow* wind = new MainWindow;
 	wind->setWindowIcon(QIcon(":/s2d_app_icon/s2d_app_icon.png"));
-
+	
 	QSystemTrayIcon* trayIcon = new QSystemTrayIcon(wind);
 	trayIcon->setIcon(QIcon(":/s2d_app_icon/s2d_app_icon.ico"));
-
+	
 	QLocale locale = wind->locale();
 	locale.setDefault(QLocale::c());
 	wind->setLocale(locale);
-
+	
 	wind->show();
 
     return a.exec();
