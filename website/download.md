@@ -7,7 +7,7 @@
 - Run the `setup.exe` file in the folder and follow the instructions
 
 Notes:
-Your antivirus will probably want to scan the installer executables and the application's executable on first use. Let the antivirus scan the executables. 
+- Your antivirus will probably want to scan the installer executables and the application's executable on first use. Let the antivirus scan the executables. 
 
 <font size = "1">Since scope2d is a free software, I did not yet want to pay for a digital signature... I am open to suggestions on how to get a digital signature for free or cheap.</font>
 
