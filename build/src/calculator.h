@@ -47,12 +47,15 @@ public:
 
 	void set_input(size_t inputIndex, const ColVector* input);
 
+	double max(const ColVector& v) const;
+	double min(const ColVector& v) const;
 	double mean(const ColVector& v) const;
 	double mode(const ColVector& v) const;
 	double median(const ColVector& v) const;
 	double rms(const ColVector& v) const;
 	double variance(const ColVector& v) const;
 	double std_dev(const ColVector& v) const;
+	double area_under(const ColVector& vIndep, const ColVector& vDep) const;
 
 	ColVector calculate_vector();
 

@@ -49,8 +49,6 @@ private:
 
 	QLineEdit* m_calcName;
 	QLineEdit* m_expression;
-	QLabel* m_exprLabel;
-	QComboBox* m_calculationSelector;
 	QPushButton* m_calcButton;
 	QGridLayout* m_grid;
 
@@ -60,11 +58,8 @@ private:
 	std::vector<QComboBox*> m_inputSelectors;
 	std::vector<QLabel*> m_inputSelectorLabels;
 
-	void m_calculate_expression();
-
 public slots:
 	void calculate_vector();
-	void show_hide_expression_input(int index);
 
 signals:
 	void vectorCalculated(ColVector);

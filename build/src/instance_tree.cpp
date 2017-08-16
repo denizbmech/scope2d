@@ -171,6 +171,26 @@ void InstanceTree::m_make_level1_context_menu(const QPoint& pos) {
 	QAction* removePlot = new QAction("Remove", &level1ContextMenu);
 	QAction* deletePlot = new QAction("Delete", &level1ContextMenu);
 
+	QMenu* calculateMenu = new QMenu("Calculate", &level1ContextMenu);
+	QAction* calcMax = new QAction("Max", &level1ContextMenu);
+	QAction* calcMin = new QAction("Min", &level1ContextMenu);
+	QAction* calcMean = new QAction("Mean", &level1ContextMenu);
+	QAction* calcMode = new QAction("Mode", &level1ContextMenu);
+	QAction* calcMedian = new QAction("Median", &level1ContextMenu);
+	QAction* calcRMS = new QAction("RMS", &level1ContextMenu);
+	QAction* calcVariance = new QAction("Variance", &level1ContextMenu);
+	QAction* calcStdDev = new QAction("Std. Dev.", &level1ContextMenu);
+	QAction* calcAreaUnder = new QAction("Area Under", &level1ContextMenu);
+	calculateMenu->addAction(calcMax);
+	calculateMenu->addAction(calcMin);
+	calculateMenu->addAction(calcMean);
+	calculateMenu->addAction(calcMode);
+	calculateMenu->addAction(calcMedian);
+	calculateMenu->addAction(calcRMS);
+	calculateMenu->addAction(calcVariance);
+	calculateMenu->addAction(calcStdDev);
+	calculateMenu->addAction(calcAreaUnder);
+
 	connect(exportToCSV, SIGNAL(triggered(bool)),
 		this, SLOT(make_export_to_csv_window()));
 	connect(drawPlot, SIGNAL(triggered(bool)),
@@ -184,10 +204,30 @@ void InstanceTree::m_make_level1_context_menu(const QPoint& pos) {
 	connect(deletePlot, SIGNAL(triggered(bool)),
 		this, SLOT(delete_plot()));
 
+	connect(calcMax, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_max()));
+	connect(calcMin, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_min()));
+	connect(calcMean, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_mean()));
+	connect(calcMode, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_mode()));
+	connect(calcMedian, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_median()));
+	connect(calcRMS, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_rms()));
+	connect(calcVariance, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_variance()));
+	connect(calcStdDev, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_std_dev()));
+	connect(calcAreaUnder, SIGNAL(triggered(bool)),
+		this, SLOT(show_signal_area_under_curve()));
+
 	level1ContextMenu.addAction(exportToCSV);
 	level1ContextMenu.addSeparator();
 	level1ContextMenu.addAction(drawPlot);
 	level1ContextMenu.addAction(curveFit);
+	level1ContextMenu.addMenu(calculateMenu);
 	level1ContextMenu.addSeparator();
 	level1ContextMenu.addAction(manageStyle);
 	level1ContextMenu.addSeparator();
@@ -588,5 +628,163 @@ void InstanceTree::export_to_csv(ChildInstance* instance,
 		errWin.setIcon(QMessageBox::Warning);
 		errWin.exec();
 	}
+
+}
+
+void InstanceTree::m_show_calculation_result(double result, QString msg) const {
+
+	QString resultStr = QString::number(result, 'f', 15);
+
+	QMessageBox resultWin;
+	resultWin.setWindowTitle("Curve calculation result");
+	resultWin.setText(msg + resultStr);
+	resultWin.setStandardButtons(QMessageBox::Ok);
+	resultWin.setIcon(QMessageBox::Information);
+	resultWin.exec();
+
+}
+
+void InstanceTree::show_signal_max() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.max(*instanceYData);
+	QString showMsg = "Maximum value of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_min() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.min(*instanceYData);
+	QString showMsg = "Minimum value of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_mean() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.mean(*instanceYData);
+	QString showMsg = "Mean value of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_mode() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.mode(*instanceYData);
+	QString showMsg = "Mode of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_median() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.median(*instanceYData);
+	QString showMsg = "Median value of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_rms() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.rms(*instanceYData);
+	QString showMsg = "RMS value of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_variance() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.variance(*instanceYData);
+	QString showMsg = "Variance of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_std_dev() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.std_dev(*instanceYData);
+	QString showMsg = "Std. Dev. of the curve is ";
+
+	m_show_calculation_result(value, showMsg);
+
+}
+
+void InstanceTree::show_signal_area_under_curve() const {
+
+	ChildInstance* currentInstance
+		= static_cast<ChildInstance*>(m_currentItem);
+
+	const ColVector* instanceXData = currentInstance->x_vector();
+	const ColVector* instanceYData = currentInstance->y_vector();
+
+	Calculator calc;
+
+	double value = calc.area_under(*instanceXData, *instanceYData);
+	QString showMsg = "Total area under the curve is ";
+
+	m_show_calculation_result(value, showMsg);
 
 }

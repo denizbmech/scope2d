@@ -45,6 +45,7 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 #include "curve_fitter_window.h"
 #include "trendline_info_window.h"
 #include "csv_writer.h"
+#include "calculator.h"
 
 
 class InstanceTree: public QTreeView {
@@ -93,6 +94,8 @@ private:
 	void m_make_level1_context_menu(const QPoint& pos);
 	void m_make_level2_context_menu(const QPoint& pos);
 
+	void m_show_calculation_result(double result, QString msg) const;
+
 public slots:
 	void manage_instance_name_changed(QStandardItem* instance);
 	void make_context_menu(const QPoint& pos);
@@ -111,6 +114,15 @@ public slots:
 	void export_to_csv(ChildInstance* instance, QString exportAddress);
 	void request_draw_curve();
 	void make_trendline_info_window();
+	void show_signal_max() const;
+	void show_signal_min() const;
+	void show_signal_mean() const;
+	void show_signal_mode() const;
+	void show_signal_median() const;
+	void show_signal_rms() const;
+	void show_signal_variance() const;
+	void show_signal_std_dev() const;
+	void show_signal_area_under_curve() const;
 
 signals:
 	void drawCurveRequested(PlotCurve*);

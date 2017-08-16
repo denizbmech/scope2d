@@ -71,6 +71,34 @@ ColVector Calculator::calculate_vector() {
 
 }
 
+double Calculator::max(const ColVector& v) const {
+
+	if(v.core.empty()) return 0.0;
+
+	double maxVal = v.core[0];
+
+	for(auto& val: v.core) {
+		if(val > maxVal) maxVal = val;
+	}
+
+	return maxVal;
+
+}
+
+double Calculator::min(const ColVector& v) const {
+
+	if(v.core.empty()) return 0.0;
+
+	double minVal = v.core[0];
+
+	for(auto& val: v.core) {
+		if(val < minVal) minVal = val;
+	}
+
+	return minVal;
+
+}
+
 double Calculator::mean(const ColVector& v) const {
 
 	int i = 0;
@@ -176,5 +204,37 @@ double Calculator::std_dev(const ColVector& v) const {
 	double std_devVal = std::sqrt(varianceVal);
 
 	return std_devVal;
+
+}
+
+double Calculator::area_under(const ColVector& vIndep, 
+	const ColVector& vDep) const {
+/*
+	Calculates the total area under the curve represented by vector vIndep and
+	vDep, which correspond to the vector of indepedent variable values and
+	vector of dependent variable values, respectly.
+
+	If the size of vIndep is not equal to the size of vDep, the smaller size
+	taken as the size and calculations are made for that size.
+
+	Uses the trapezoidal rule.
+*/
+
+	if(vIndep.core.empty() || vDep.core.empty()) return 0.0;
+
+	double totalArea = 0.0;
+
+	size_t vIndepSize = vIndep.core.size();
+	size_t vDepSize = vDep.core.size();
+	size_t calcSize = vIndepSize < vDepSize ? vIndepSize : vDepSize;
+
+	for(size_t i = 0; i < calcSize-1; i++) {
+		double nextArea = 
+			(vDep.core[i] + vDep.core[i+1])*(vIndep.core[i+1] - vIndep.core[i]);
+		nextArea *= 0.5; // divide by 2. couldn't fit in the previous line
+		totalArea += nextArea;
+	}
+
+	return totalArea;
 
 }

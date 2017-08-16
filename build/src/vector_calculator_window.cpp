@@ -53,17 +53,7 @@ VectorCalculatorWindow::VectorCalculatorWindow(QWidget* parent,
 	m_calcName = new QLineEdit(this);
 	m_calcName->setMaxLength(50);
 
-	QLabel*	calcSelectionLabel = new QLabel("Calculate: ", this);
-	m_calculationSelector = new QComboBox(this);
-	m_calculationSelector->addItems(QStringList()
-		<< "Mean" << "Mode" << "Median" << "RMS" << "Variance" << "Std. Dev."
-		<< "Expression");
-	m_calculationSelector->setCurrentIndex(6);
-
-	connect(m_calculationSelector, SIGNAL(currentIndexChanged(int)),
-		this, SLOT(show_hide_expression_input(int)));
-
-	m_exprLabel = new QLabel("Expression: ", this);
+	QLabel* exprLabel = new QLabel("Expression: ", this);
 	m_expression = new QLineEdit(this);
 
 	m_calcButton = new QPushButton("Calculate", this);
@@ -71,96 +61,15 @@ VectorCalculatorWindow::VectorCalculatorWindow(QWidget* parent,
 	connect(m_calcButton, SIGNAL(clicked(bool)),
 		this, SLOT(calculate_vector()));
 
-	m_grid->addWidget(calcSelectionLabel, m_numInputs + 1, 0);
-	m_grid->addWidget(m_calculationSelector, m_numInputs + 1, 1);
-	m_grid->addWidget(calcNameLabel, m_numInputs + 2, 0);
-	m_grid->addWidget(m_calcName, m_numInputs + 2, 1);
-	m_grid->addWidget(m_exprLabel, m_numInputs + 3, 0);
-	m_grid->addWidget(m_expression, m_numInputs + 3, 1);
-	m_grid->addWidget(m_calcButton, m_numInputs + 4, 3);
+	m_grid->addWidget(calcNameLabel, m_numInputs + 1, 0);
+	m_grid->addWidget(m_calcName, m_numInputs + 1, 1);
+	m_grid->addWidget(exprLabel, m_numInputs + 2, 0);
+	m_grid->addWidget(m_expression, m_numInputs + 2, 1);
+	m_grid->addWidget(m_calcButton, m_numInputs + 3, 3);
 
 }
 
 void VectorCalculatorWindow::calculate_vector() {
-
-	int selectedCalculation = m_calculationSelector->currentIndex();
-
-	// Prepare for single value calculation (mean, rms etc.). When the user asks
-	// for single value calculation, all inputs except for Input 1 are neglected
-	// and all calculations are done for Input 1
-	Calculator valueCalculator;
-
-	int inputIndex = m_inputSelectors[0]->currentIndex();
-
-	const ColVector input1 = m_instance->data().columns[inputIndex];
-	size_t input1Size = input1.core.size();
-
-	QString calcResultName = m_calcName->text();
-
-	// to be emitted in case 0 - 5
-	ColVector calculatedVector(calcResultName.toStdString()); 
-
-	switch(selectedCalculation) {
-		case 0:
-		{
-			double meanVal = valueCalculator.mean(input1);
-			calculatedVector.core = vector_double(input1Size, meanVal);
-			emit vectorCalculated(calculatedVector);
-			this->close();
-			break;
-		}
-		case 1:
-		{
-			double modeVal = valueCalculator.mode(input1);
-			calculatedVector.core = vector_double(input1Size, modeVal);
-			emit vectorCalculated(calculatedVector);
-			this->close();
-			break;
-		}
-		case 2:
-		{
-			double medianVal = valueCalculator.median(input1);
-			calculatedVector.core = vector_double(input1Size, medianVal);
-			emit vectorCalculated(calculatedVector);
-			this->close();
-			break;
-		}
-		case 3:
-		{
-			double rmsVal = valueCalculator.rms(input1);
-			calculatedVector.core = vector_double(input1Size, rmsVal);
-			emit vectorCalculated(calculatedVector);
-			this->close();
-			break;
-		}
-		case 4:
-		{
-			double varianceVal = valueCalculator.variance(input1);
-			calculatedVector.core = vector_double(input1Size, varianceVal);
-			emit vectorCalculated(calculatedVector);
-			this->close();
-			break;
-		}
-		case 5:
-		{
-			double std_devVal = valueCalculator.std_dev(input1);
-			calculatedVector.core = vector_double(input1Size, std_devVal);
-			emit vectorCalculated(calculatedVector);
-			this->close();
-			break;
-		}
-		case 6:
-			// m_calculate_expression() handles all expression calculations by
-			// itself. no need for more than just calling the function
-			m_calculate_expression();
-			break;
-		default:
-			break;
-	}
-
-}
-
-void VectorCalculatorWindow::m_calculate_expression() {
 
 	QString calcResultName = m_calcName->text();
 	QString expr = m_expression->text();
@@ -171,7 +80,7 @@ void VectorCalculatorWindow::m_calculate_expression() {
 		for(size_t i = 0; i < m_numInputs; i++) {
 			size_t instanceIndex = i + 1;
 			int inputIndex = m_inputSelectors[i]->currentIndex();
-			
+
 			const ColVector* input = &(m_instance->data().columns[inputIndex]);
 
 			vectorCalculator.set_input(instanceIndex, input);
@@ -194,40 +103,6 @@ void VectorCalculatorWindow::m_calculate_expression() {
 		errWin.setStandardButtons(QMessageBox::Ok);
 		errWin.setIcon(QMessageBox::Warning);
 		errWin.exec();
-	}
-	
-}
-
-void VectorCalculatorWindow::show_hide_expression_input(int index) {
-
-	switch(index) {
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-			m_exprLabel->hide();
-			m_expression->hide();
-
-			for(size_t i = 1; i < m_numInputs; i++) {
-				m_inputSelectors[i]->hide();
-				m_inputSelectorLabels[i]->hide();
-			}
-				
-			break;
-		case 6:
-			m_exprLabel->show();
-			m_expression->show();
-
-			for(size_t i = 1; i < m_numInputs; i++) {
-				m_inputSelectors[i]->show();
-				m_inputSelectorLabels[i]->show();
-			}
-
-			break;
-		default:
-			break;
 	}
 
 }
