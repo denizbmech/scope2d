@@ -250,9 +250,22 @@ If you want to revert the normalization, simply normalize again with a reference
 
 ### Calculators <a id="calculators"><a href="#top">Top</a></a>
 
-Calculators are a useful feature of scope2d, which allows the user to calculate a dataset's mean value, mode, median, standard deviation, variance, RMS (root mean square) or create a mathematical expression to use up to 5 datasets as inputs and calculate a single resulting dataset.
+Calculators are a useful feature of scope2d, which allows the user to calculate a dataset's maximum value, minimum value, mean value, mode and others as well as create a mathematical expression using up to 5 datasets as inputs to calculate a single resulting dataset.
 
-To calculate data, right click a parent instance on the instance tree and select "Calculate". Firstly, select the number of inputs on the first dialog. A maximum of 5 inputs can be selected. And then select one of the calculations available: Mean, Mode, Median, RMS, Variance, Standard Deviation, Expression.
+By right clicking a child instance (a plot item on the instance tree) and selecting the "Calculate" menu, it is possible to calculate:
+
+<ul>
+<li>Maximum value</li>
+<li>Minimum value</li>
+<li>Mean value</li>
+<li>Mode</li>
+<li>Median</li>
+<li>Standard deviation</li>
+<li>RMS (Root Mean Square)</li>
+<li>Area under the curve</li>
+</ul>
+
+for that selected plot curve.
 
 #### Calculating expressions <a id="calculating-expr"><a href="#top">Top</a></a>
 
