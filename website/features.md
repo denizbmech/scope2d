@@ -267,6 +267,12 @@ By right clicking a child instance (a plot item on the instance tree) and select
 
 for that selected plot curve.
 
+<p align="center">
+
+<img src="https://bilgilid.github.io/scope2d/website/images/calculator4.png" alt="Calculate data">
+
+</p>
+
 #### Calculating expressions <a id="calculating-expr"><a href="#top">Top</a></a>
 
 Mathematical expressions such as `1.12 + sin(2*'PI'*'N1')` can be calculated using existing datasets as inputs. For example, we have a data that stores the values of X axis as well as the values of the real and imaginary parts of the Y axis. We can use a calculator to calculate the modulus values from the real and imaginary components.
