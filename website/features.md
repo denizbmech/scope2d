@@ -433,7 +433,7 @@ Copy the data by hitting CTRL + C. Create a new text file and paste the copied d
 
 </p>
 
-To convert this data to scope2d generic CSV data, simple add the data start and end lines. Also, the data block name line.
+To convert this data to scope2d generic CSV data, simply add the data start and end lines. Also, the data block name line.
 
 <p align="center">
 
