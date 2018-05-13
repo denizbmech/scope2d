@@ -2,7 +2,7 @@
 
 ### Install on Windows
 
-- Download the [Windows 64 bit installer](https://github.com/bilgilid/scope2d/releases/download/1.0.1/scope2dSetup.exe) and run it
+- Download the [Windows 64 bit installer](https://github.com/bilgilid/scope2d/releases/download/1.0.2/scope2dSetup_1.0.2.exe) and run it
 - Open the folder it creates (i.e. `scope2dSetup`)
 - Run the `setup.exe` file in the folder and follow the instructions
 
