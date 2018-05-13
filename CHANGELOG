@@ -1,5 +1,3 @@
-scope2d 1.0.1 Change log:
+scope2d 1.0.2 Change log:
 
-- Single-value and multi-value calculations are now separated. To calculate a curve's max, min, mean etc, simply right click the curve's instance and select the calculation you want from the menu item "Calculate". The result will be shown in a pop-up window. Element-wise expression calculations between two vectors are still made via parent instances.
-
-- New calculations for curves are added: Max, min and area under the curve
+- Newly created curves will now automatically be assigned different colors.
