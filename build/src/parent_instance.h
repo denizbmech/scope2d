@@ -45,7 +45,8 @@ public:
 
 	void set_data(const GenericDataBlock& block) { m_dataBlock = block; }
 	void set_data(GenericDataBlock&& block) { m_dataBlock = std::move(block); }
-	void make_plots(int indepIndex, const QList<int>& depIndices);
+	void make_plots(int indepIndex, const QList<int>& depIndices, 
+		std::size_t colorIndex = 0);
 
 	void append_column(ColVector& v);
 	void append_column(ColVector&& v);

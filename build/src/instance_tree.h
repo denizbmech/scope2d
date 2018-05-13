@@ -88,6 +88,8 @@ private:
 	QModelIndex m_currentIndex;
 	QStandardItem* m_currentItem;
 
+	std::size_t m_numPlotCurves;
+
 	int m_find_item_level(QModelIndex itemIndex);
 	void m_init_item_model();
 	void m_make_level0_context_menu(const QPoint& pos);

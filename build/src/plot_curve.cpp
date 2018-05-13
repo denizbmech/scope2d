@@ -104,3 +104,17 @@ void PlotCurve::setSymbol(QwtSymbol* symbol) {
 	if(plot) plot->replot();
 
 }
+
+void PlotCurve::set_color(std::size_t colorIndex) {
+
+	std::vector<char*> rgb {"#0000FF", "#FF0000", "#00FF00", "#7F00FF",
+		"#FF007F", "#FF8000", "#0080FF", "#000000", "#006633", "#660033"};
+
+	auto colorIndexMod = colorIndex % rgb.size();
+	auto colorCodeStr = rgb[colorIndexMod];
+
+	auto currentPen = this->pen();
+	currentPen.setColor(QColor(colorCodeStr));
+	this->setPen(currentPen);
+
+}

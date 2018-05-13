@@ -38,7 +38,8 @@ ParentInstance::ParentInstance(GenericDataBlock&& block)
 
 }
 
-void ParentInstance::make_plots(int indepIndex, const QList<int>& depIndices) {
+void ParentInstance::make_plots(int indepIndex, const QList<int>& depIndices,
+	std::size_t colorIndex) {
 
 	std::string xHeader = m_dataBlock.columns[indepIndex].header;
 
@@ -54,11 +55,14 @@ void ParentInstance::make_plots(int indepIndex, const QList<int>& depIndices) {
 						  m_dataBlock.columns[index].core, 
 						  curveTitle);
 
+		curve->set_color(colorIndex);
+
 		ChildInstance* newChild = new ChildInstance(curve, 
 									&m_dataBlock.columns[indepIndex], 
 									&m_dataBlock.columns[index]);
 	
 		this->appendRow(newChild);
+		colorIndex++;
 	}
 
 }

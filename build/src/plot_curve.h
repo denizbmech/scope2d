@@ -25,6 +25,7 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 #include <memory>
 
 #include <QPen>
+#include <QColor>
 #include <QString>
 
 #include <qwt_plot.h>
@@ -56,6 +57,8 @@ public:
 
 	void setPen(QPen pen);
 	void setSymbol(QwtSymbol* symbol);
+
+	void set_color(std::size_t colorIndex);
 
 	virtual ~PlotCurve() { this->detach(); }
 

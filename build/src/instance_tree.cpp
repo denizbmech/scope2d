@@ -28,6 +28,7 @@ InstanceTree::InstanceTree(QWidget* parent): QTreeView(parent) {
 	this->setSortingEnabled(true);
 
 	m_init_item_model();
+	m_numPlotCurves = 0;
 
 	this->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
@@ -353,9 +354,12 @@ void InstanceTree::make_plots(int indepIndex, QList<int> depIndices) {
 
 	int numberOfChildrenBeforeMakePlot = currentInstance->rowCount();
 
-	currentInstance->make_plots(indepIndex, depIndices);
+	currentInstance->make_plots(indepIndex, depIndices, m_numPlotCurves);
 
 	int numberOfChildrenAfterMakePlot = currentInstance->rowCount();
+
+	m_numPlotCurves += 
+		numberOfChildrenAfterMakePlot - numberOfChildrenBeforeMakePlot;
 
 	// draw children immediately upon creation
 	for(int i = numberOfChildrenBeforeMakePlot; 
