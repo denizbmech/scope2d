@@ -51,8 +51,8 @@ public:
 class DATA_MISMATCH: public std::exception {
 public:
 	DATA_MISMATCH(std::size_t line) {
-		m_errMsg = "CSV Reader Error: Number of data columns is not equal to "
-			"the number of headers on line " + std::to_string(line);
+		m_errMsg = "CSV Reader Error: The number of data columns is not equal "
+			"to the number of headers on line " + std::to_string(line);
 	}
 
 	virtual const char* what() const noexcept {
