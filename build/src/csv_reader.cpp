@@ -26,6 +26,7 @@ void CSVReader::m_parse(GenericDataBlock& dataBlock, char delim) {
 	CSV file parsing function for any delimiter that is not whitespace
 	character.
 */
+	std::size_t lineNumber = 1;
 
 	if(delim == ' ') {
 		m_parse_spacedelim(dataBlock);
@@ -35,7 +36,7 @@ void CSVReader::m_parse(GenericDataBlock& dataBlock, char delim) {
 	// read and set block name
 	std::string blockName;
 
-	std::getline(m_fileStream, blockName);
+	std::getline(m_fileStream, blockName); lineNumber++;
 
 	dataBlock.title = blockName;
 
@@ -43,7 +44,7 @@ void CSVReader::m_parse(GenericDataBlock& dataBlock, char delim) {
 	vector_string temporaryHeaderHolder;
 	std::string headersLine;
 
-	std::getline(m_fileStream, headersLine);
+	std::getline(m_fileStream, headersLine); lineNumber++;
 
 	std::string headersLineNoWS = m_clear_whitespace(headersLine);
 	std::istringstream headerStream(headersLineNoWS);
@@ -66,7 +67,10 @@ void CSVReader::m_parse(GenericDataBlock& dataBlock, char delim) {
 
 	while(std::getline(m_fileStream, dataLineRaw) 
 		&& !m_isDataEnd(dataLineRaw)) {
-		int counter = 0;
+		lineNumber++;
+
+		std::size_t processed = 0;
+		std::size_t expected = numberOfHeaders - processed;
 
 		if(m_isDataStart(dataLineRaw)) throw MISSING_DATA_END_TAG();
 
@@ -74,9 +78,16 @@ void CSVReader::m_parse(GenericDataBlock& dataBlock, char delim) {
 		std::string dataToken;
 
 		while(std::getline(iss, dataToken, delim)) {
+			if(processed > numberOfHeaders - 1) throw DATA_MISMATCH(lineNumber);
+
 			double d = std::stod(dataToken);
-			dataBlock.columns[counter++] << d;
+			dataBlock.columns[processed] << d;
+
+			processed += 1;
+			expected -= 1;
 		}
+
+		if(expected != 0) throw DATA_MISMATCH(lineNumber);
 	}
 
 }
@@ -86,11 +97,12 @@ void CSVReader::m_parse_spacedelim(GenericDataBlock& dataBlock) {
 /*
 	CSV file parsing function for whitespace delimiter.
 */
+	std::size_t lineNumber = 1;
 
 	// read and set block name
 	std::string blockName;
 
-	std::getline(m_fileStream, blockName);
+	std::getline(m_fileStream, blockName); lineNumber++;
 
 	dataBlock.title = blockName;
 
@@ -98,7 +110,7 @@ void CSVReader::m_parse_spacedelim(GenericDataBlock& dataBlock) {
 	vector_string temporaryHeaderHolder;
 	std::string headersLine;
 
-	std::getline(m_fileStream, headersLine);
+	std::getline(m_fileStream, headersLine); lineNumber++;
 
 	std::istringstream headerStream(headersLine);
 	std::string nextHeader;
@@ -119,14 +131,26 @@ void CSVReader::m_parse_spacedelim(GenericDataBlock& dataBlock) {
 
 	while(std::getline(m_fileStream, dataLineRaw) 
 		&& !m_isDataEnd(dataLineRaw)) {
-		int counter = 0;
+		lineNumber++;
+
+		std::size_t processed = 0;
+		std::size_t expected = numberOfHeaders - processed;
 
 		if(m_isDataStart(dataLineRaw)) throw MISSING_DATA_END_TAG();
 
  		std::istringstream iss(dataLineRaw);
 		double d;
 
-		while(iss >> d) dataBlock.columns[counter++] << d;
+		while(iss >> d) {
+			if(processed > numberOfHeaders - 1) throw DATA_MISMATCH(lineNumber);
+
+			dataBlock.columns[processed] << d;
+
+			processed += 1;
+			expected -= 1;
+		}
+
+		if(expected != 0) throw DATA_MISMATCH(lineNumber);
 	}
 
 }

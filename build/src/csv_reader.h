@@ -23,6 +23,7 @@ along with scope2d.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <sstream>
 #include <utility>
@@ -45,6 +46,20 @@ public:
 		return "CSV Reader Error: One of the data blocks has a missing "
 			"SCOPE2D_CSV_DATA_END tag. ";
 	}
+};
+
+class DATA_MISMATCH: public std::exception {
+public:
+	DATA_MISMATCH(std::size_t line) {
+		m_errMsg = "CSV Reader Error: Number of data columns is not equal to "
+			"the number of headers on line " + std::to_string(line);
+	}
+
+	virtual const char* what() const noexcept {
+		return m_errMsg.c_str();
+	}
+private:
+	std::string m_errMsg;
 };
 
 class CSVReader: public AbstractReader {
