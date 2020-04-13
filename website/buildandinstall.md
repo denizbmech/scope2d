@@ -1,6 +1,6 @@
 ## How to build and install scope2d
 
-Source code for scope2d can be downloaded from <a href="https://github.com/bilgilid/scope2d">the project page</a>.
+Source code for scope2d can be downloaded from <a href="https://github.com/denizbmech/scope2d">the project page</a>.
 Build instructions are given in scope2d's project build folder, in files named `BUILD`. Qt's `QMake` is necessary to build scope2d.
 
 scope2d needs <a href="https://www.qt.io/download/">Qt</a> 5.8.0 or above, <a href="http://qwt.sourceforge.net">Qwt</a> 6.1.3 or above and <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> 3.3.4 or above to be built.
