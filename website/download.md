@@ -2,7 +2,7 @@
 
 ### Install on Windows
 
-- Download the [Windows 64 bit installer](https://github.com/bilgilid/scope2d/releases/download/1.0.3/scope2dSetup_1.0.3.exe) and run it
+- Download the [Windows 64 bit installer](https://github.com/denizbmech/scope2d/releases/download/1.0.3/scope2dSetup_1.0.3.exe) and run it
 - Open the folder it creates (i.e. `scope2dSetup`)
 - Run the `setup.exe` file in the folder and follow the instructions
 
@@ -23,4 +23,4 @@ Your antivirus will probably want to scan the installer executables and the appl
 
 ### Project releases page
 
-For more information about the releases, visit the [releases page](https://github.com/bilgilid/scope2d/releases).
+For more information about the releases, visit the [releases page](https://github.com/denizbmech/scope2d/releases).
