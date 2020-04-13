@@ -55,7 +55,7 @@ scope2d has 5 main GUI sections.
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/general_gui.png" alt="General GUI">
+<img src="https://denizbmech.github.io/scope2d/website/images/general_gui.png" alt="General GUI">
 
 </p>
 
@@ -67,7 +67,7 @@ There are two types of instances; parent instances and child instances. Parent i
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/instances.png" alt="Instances">
+<img src="https://denizbmech.github.io/scope2d/website/images/instances.png" alt="Instances">
 
 </p>
 
@@ -76,7 +76,7 @@ To make plots, right click a parent instance and select "Make plots". Make plots
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/make_plot.PNG" alt="Making plots">
+<img src="https://denizbmech.github.io/scope2d/website/images/make_plot.PNG" alt="Making plots">
 
 </p>
 
@@ -85,7 +85,7 @@ Parent instances contain data as columns. It is possible to delete columns of da
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/delete_cols.PNG" alt="Delete columns">
+<img src="https://denizbmech.github.io/scope2d/website/images/delete_cols.PNG" alt="Delete columns">
 
 </p>
 
@@ -94,7 +94,7 @@ Plot style controls are available through child instances. Simply select and rig
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/style_manager.PNG" alt="Plot style management">
+<img src="https://denizbmech.github.io/scope2d/website/images/style_manager.PNG" alt="Plot style management">
 
 </p>
 
@@ -130,7 +130,7 @@ Harmonics are defined as vertical markers having X coordinates which are integer
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/harmonics.png" alt="Harmonics">
+<img src="https://denizbmech.github.io/scope2d/website/images/harmonics.png" alt="Harmonics">
 
 </p>
 
@@ -138,7 +138,7 @@ Sidebands are defined as equally-spaced neighboring vertical markers which are p
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/sidebands.png" alt="Sidebands">
+<img src="https://denizbmech.github.io/scope2d/website/images/sidebands.png" alt="Sidebands">
 
 </p>
 
@@ -158,7 +158,7 @@ This functionality is designed to identify which data points are actually sideba
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/dynamic-sidebands.png" alt="Sidebands">
+<img src="https://denizbmech.github.io/scope2d/website/images/dynamic-sidebands.png" alt="Sidebands">
 
 </p>
 
@@ -178,7 +178,7 @@ scope2d provides 3 independent charters to be viewed simultaneously. Sometimes i
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/multiplot.png" alt="Multiplot">
+<img src="https://denizbmech.github.io/scope2d/website/images/multiplot.png" alt="Multiplot">
 
 </p>
 
@@ -188,7 +188,7 @@ Use the first set of "1 2 3" buttons to toggle Charter 1, Charter 2 and Charter 
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/toggle_charters.PNG" alt="Toggle charters">
+<img src="https://denizbmech.github.io/scope2d/website/images/toggle_charters.PNG" alt="Toggle charters">
 
 </p>
 
@@ -198,7 +198,7 @@ You can set one of the charters as the active charters using the second set of "
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/set_active_charter.PNG" alt="Active charter">
+<img src="https://denizbmech.github.io/scope2d/website/images/set_active_charter.PNG" alt="Active charter">
 
 </p>
 
@@ -234,7 +234,7 @@ When Normalized is selected from the top menubar; firstly, select the axis that 
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/normalized_axis_1.png" alt="Normalized scale 1">
+<img src="https://denizbmech.github.io/scope2d/website/images/normalized_axis_1.png" alt="Normalized scale 1">
 
 </p>
 
@@ -242,7 +242,7 @@ Once the axis is selected, you will be prompted a window to enter the reference 
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/normalized_axis_2.png" alt="Normalized scale 2">
+<img src="https://denizbmech.github.io/scope2d/website/images/normalized_axis_2.png" alt="Normalized scale 2">
 
 </p>
 
@@ -269,7 +269,7 @@ for that selected plot curve.
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/calculator4.png" alt="Calculate data">
+<img src="https://denizbmech.github.io/scope2d/website/images/calculator4.png" alt="Calculate data">
 
 </p>
 
@@ -281,7 +281,7 @@ Initially, we begin with below data:
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/calculator1.PNG" alt="Initial data">
+<img src="https://denizbmech.github.io/scope2d/website/images/calculator1.PNG" alt="Initial data">
 
 </p>
 
@@ -289,7 +289,7 @@ Right click the parent instance of the dataset and select "Calculate". Set the n
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/calculator2.PNG" alt="Calculate data">
+<img src="https://denizbmech.github.io/scope2d/website/images/calculator2.PNG" alt="Calculate data">
 
 </p>
 
@@ -297,7 +297,7 @@ Calculated datasets are saved as columns in their respective parent instances.
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/calculator3.PNG" alt="After calculate">
+<img src="https://denizbmech.github.io/scope2d/website/images/calculator3.PNG" alt="After calculate">
 
 </p>
 
@@ -413,7 +413,7 @@ Say we have below data in an Excel file.
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/excel_1.PNG" alt="Excel data">
+<img src="https://denizbmech.github.io/scope2d/website/images/excel_1.PNG" alt="Excel data">
 
 </p>
 
@@ -421,7 +421,7 @@ To convert this into a generic CSV data, select all cells, including the headers
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/excel_2.PNG" alt="Excel data2">
+<img src="https://denizbmech.github.io/scope2d/website/images/excel_2.PNG" alt="Excel data2">
 
 </p>
 
@@ -429,7 +429,7 @@ Copy the data by hitting CTRL + C. Create a new text file and paste the copied d
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/excel_3.PNG" alt="Excel data3">
+<img src="https://denizbmech.github.io/scope2d/website/images/excel_3.PNG" alt="Excel data3">
 
 </p>
 
@@ -437,7 +437,7 @@ To convert this data to scope2d generic CSV data, simply add the data start and 
 
 <p align="center">
 
-<img src="https://bilgilid.github.io/scope2d/website/images/excel_4.PNG" alt="Excel data4">
+<img src="https://denizbmech.github.io/scope2d/website/images/excel_4.PNG" alt="Excel data4">
 
 </p>
 
