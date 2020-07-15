@@ -2,9 +2,7 @@
 
 ### Install on Windows
 
-- Download the [Windows 64 bit installer](https://github.com/denizbmech/scope2d/releases/download/1.0.3/scope2dSetup_1.0.3.exe) and run it
-- Open the folder it creates (i.e. `scope2dSetup`)
-- Run the `setup.exe` file in the folder and follow the instructions
+- Download the [Windows 64 bit installer](https://github.com/denizbmech/scope2d/releases/download/1.0.3/scope2dInstaller_v.1.0.3.msi) and run
 
 <font size = "2">
 Notes:
