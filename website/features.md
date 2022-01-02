@@ -130,7 +130,7 @@ Harmonics are defined as vertical markers having X coordinates which are integer
 
 <p align="center">
 
-<img src="https://denizbmech.github.io/scope2d/website/images/harmonics.png" alt="Harmonics">
+<img src="https://denizbmech.github.io/scope2d/website/images/harmonics.png" alt="Harmonics" width="500" height="600">
 
 </p>
 
