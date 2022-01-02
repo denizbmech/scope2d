@@ -126,7 +126,7 @@ For example, say the user entered 5 as the picker search width and the maximum n
 
 Vertical markers can have harmonics and sidebands. These are useful specifically in frequency spectrum analysis. Harmonics and sidebands are added to a vertical marker by right clicking the vertical marker on the marker tree and selecting either "Add harmonics" or "Add sidebands".
 
-Harmonics are defined as vertical markers having X coordinates which are integer multiples of the X coordinate of the fundamental marker (or the first harmonic). For example, say we have a vertical marker at X = 200. If we add 3 harmonics to this marker, that means we will have markers at 400, 600 and 800.
+Harmonics are defined as vertical markers having X coordinates which are integer multiples of the X coordinate of the fundamental marker (or the first harmonic). For example, say we have a vertical marker at X = 166 Hz for the first shaft order (1X). If we add 14 harmonics to this marker, that means we will have markers at 332 Hz, 498 Hz, 664 Hz etc.
 
 <p align="center">
 
@@ -134,7 +134,7 @@ Harmonics are defined as vertical markers having X coordinates which are integer
 
 </p>
 
-Sidebands are defined as equally-spaced neighboring vertical markers which are placed on either sides of the fundamental marker. For example, assume we have a vertical marker at X = 500. If we add 3 side bands with a gap 50, we will have a total of 6 additional markers; 3 on the left and 3 on the right, at X values 350, 400, 450, 550, 600, 650.
+Sidebands are defined as equally spaced neighboring vertical markers which are placed on either sides of the fundamental marker. For example, assume we have a vertical marker at X = 166 Hz. If we add one side band with a gap 15 Hz, we will have a total of two additional markers; one on the left and one on the right, at X values 151 Hz and 181 Hz.
 
 <p align="center">
 
