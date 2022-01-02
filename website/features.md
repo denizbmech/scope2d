@@ -134,7 +134,7 @@ Harmonics are defined as vertical markers having X coordinates which are integer
 
 </p>
 
-Sidebands are defined as equally spaced neighboring vertical markers which are placed on either sides of the fundamental marker. For example, assume we have a vertical marker at X = 500 Hz. If we add one side band with a gap 15 Hz, we will have a total of two additional markers; one on the left and one on the right, at X values 485 Hz and 515 Hz.
+Sidebands are defined as equally spaced neighboring vertical markers which are placed on either sides of the fundamental marker. For example, assume we have a vertical marker at X = 498 Hz. If we add one side band with a gap 15 Hz, we will have a total of two additional markers; one on the left and one on the right, at X values 483 Hz and 513 Hz.
 
 <p align="center">
 
