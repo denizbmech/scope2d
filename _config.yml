@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 layout: default
 baseurl: /scope2d 
+github:
+  owner_name: denizbmech
